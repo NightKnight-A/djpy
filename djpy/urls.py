@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from web import views
+from web02 import views as web02_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/(\d*)', views.index),
+    url(r'^web02/login/', web02_views.login),
+    url(r'^web02/index/', web02_views.index),
 ]
