@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^index/(\d*)', views.index),
     url(r'^web02/login/', web02_views.login),
     url(r'^web02/index/', web02_views.index),
+    url(r'^web02/logout/', web02_views.logout),
 ]

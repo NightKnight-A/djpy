@@ -20,4 +20,9 @@ def index(request,page):
     page_string = html_helper.Pager(page,pageObj.all_pages_count)
 
     ret = {'data':result,'count':count,'page':page_string}
-    return render_to_response('index.html',ret)
+
+    response = render_to_response('index.html',ret)
+
+    response.set_cookie('k1','v1')
+
+    return response

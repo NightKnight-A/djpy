@@ -10,15 +10,19 @@ def login(request):
         user = request.POST.get('username',None)
         pwd = request.POST.get('password',None)
         if user == 'alex' and pwd == '123':
-            request.session['is_login'] = True
+            request.session['is_login'] = {'user':user}
             return redirect('/web02/index/')
         else:
             return render_to_response('web02/login.html',{'msg':'用戶名或密碼錯誤。'})
     return render_to_response('web02/login.html')
 
 def index(request):
-    is_login = request.session.get('is_login',None)
-    if is_login:
-        return render_to_response('web02/index.html')
+    user_dict = request.session.get('is_login',None)
+    if user_dict:
+        return render_to_response('web02/index.html',{'username':user_dict['user']})
     else:
         return redirect('/web02/login/')
+
+def logout(request):
+    del request.session['is_login']
+    return redirect('/web02/login')
