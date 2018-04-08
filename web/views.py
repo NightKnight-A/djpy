@@ -10,10 +10,14 @@ from web import html_helper
 # Create your views here.
 
 def index(request,page):
+
+    per_item = common.try_int(request.COOKIES.get('pager_num',5),5)
+
     page = common.try_int(page,1)
+
     count = models.Host.objects.all().count()
 
-    pageObj = html_helper.PageInfo(page,count)
+    pageObj = html_helper.PageInfo(page,count,per_item)
 
     result = models.Host.objects.all()[pageObj.start:pageObj.end]
 

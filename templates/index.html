@@ -37,13 +37,22 @@
         {{ page }}
     </div>
     <div>
-        <select onchange="ChangePageItem(this);">
+        <select onchange='ChangePageItem(this);'>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
             <option value="20">20</option>
         </select>
     </div>
+    <script src="/static/jquery-2.1.4.js"></script>
+    <script src="/static/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        function ChangePageItem(arg) {
+            //創建或者修改cookies的值
+            var value = $(arg).val();
+            $.cookie("pager_num", value, { path: '/' });
+        }
+    </script>
 
 </body>
 </html>
