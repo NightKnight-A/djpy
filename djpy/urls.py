@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from web import views
 from web02 import views as web02_views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,3 +26,5 @@ urlpatterns = [
     url(r'^web02/index/', web02_views.index),
     url(r'^web02/logout/', web02_views.logout),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
