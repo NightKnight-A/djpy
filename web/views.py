@@ -27,6 +27,6 @@ def index(request,page):
 
     response = render_to_response('index.html',ret)
 
-    response.set_cookie('k1','v1')
+    response.set_cookie('pager_num',per_item)
 
     return response

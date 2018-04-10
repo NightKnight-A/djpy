@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^web02/login/', web02_views.login),
     url(r'^web02/index/', web02_views.index),
     url(r'^web02/logout/', web02_views.logout),
+    url(r'^static/', staticfiles_urlpatterns),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+#urlpatterns += staticfiles_urlpatterns()

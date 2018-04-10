@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render,render_to_response,redirect
+from django.template import RequestContext
 
 # Create your views here.
 
@@ -14,7 +15,7 @@ def login(request):
             return redirect('/web02/index/')
         else:
             return render_to_response('web02/login.html',{'msg':'用戶名或密碼錯誤。'})
-    return render_to_response('web02/login.html')
+    return render(request,'web02/login.html')
 
 def index(request):
     user_dict = request.session.get('is_login',None)
